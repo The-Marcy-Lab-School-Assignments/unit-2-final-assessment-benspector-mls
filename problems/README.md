@@ -15,7 +15,7 @@
   * If the input is not an array, return undefined.
   * If the input is an empty array, return an empty array.
   
-  Review the test cases below, then implement the solution accordingly.**
+  Review the test cases below, then implement the solution accordingly.
   ```javascript
   rotateArray([7, 3, 5, 2, 9, 1]);       // [3, 5, 2, 9, 1, 7]
   rotateArray(['a', 'b', 'c']);          // ["b", "c", "a"]
@@ -42,7 +42,7 @@
   * The number of characters that are uppercase letters
   * The number of characters that are neither
 
-  You may assume that the string will always contain at least one character.**
+  You may assume that the string will always contain at least one character.
 
   ```javascript
   letterCaseCounts('abCdef 123');
