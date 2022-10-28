@@ -206,7 +206,7 @@ Variables declared with `let` or `const` are not hoisted. If they are referenced
 
   ```js
   let a = [1,2,3];
-  // lets think of this as a = 0xd48af2
+  // lets think of this as a = 0xd48af2 where 0xd48af2 is the memory location of the array.
   let b = a;
   // b now stores the same reference: b = 0xd48af2
   
