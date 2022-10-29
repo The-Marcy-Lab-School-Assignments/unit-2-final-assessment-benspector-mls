@@ -52,8 +52,8 @@ Variables declared with `let` or `const` are not hoisted. If they are referenced
   ```
 
   This code block will throw a `ReferenceError` error because:
-  * `currentStatus` is declared using `let` so it is locally scoped to the `if` and `else` blocks.
-  * The `console.log` statement at the end of the code block is in the global scope and it references `currentStatus` which is not available in the global scope.
+  * `currentStatus` is declared using `let` so it is block scoped to the `if` and `else` blocks.
+  * The `console.log` statement at the end of the code block is in the global scope and it references `currentStatus` which is block scoped and NOT available in the global scope. The result is a `ReferenceError`.
 
 
 3. **Why does the following block of code NOT throw an error?**
@@ -69,12 +69,12 @@ Variables declared with `let` or `const` are not hoisted. If they are referenced
   console.log(currentStatus);
   ```
 
-  This code block does NOT throw an error because, unlike the previous example, `currentStatus` is declared using the `var` keyword which _always_ creates globally scoped variables. As a result, the `console.log()` statement has access to `currentStatus` even though it is declared inside of an `if`/`else` block.
+  This code block does NOT throw an error because, unlike the previous example, `currentStatus` is declared using the `var` keyword which is NOT block scoped. As a result, the `console.log()` statement has access to `currentStatus` even though it is declared inside of an `if`/`else` block.
 
 
 4. **In JavaScript, we can declare variables with `var`, `let`, and `const`. What are the differences between each? Be sure to comment on how each declaration impacts the _scope_, _reassignment_, and _hoisting_ of variables.**
 
-* The `var` keyword declares a _globally scoped_ variable that can be reassigned and whose _declaration_ is hoisted (but not its initialization).
+* The `var` keyword declares a _function scoped_ variable that can be reassigned and whose _declaration_ is hoisted (but not its initialization).
 * The `let` keyword declares a _block scoped_ variable that can be reassigned and is NOT hoisted.
 * The `const` keyword declares a _block scoped_ variable that CANNOT be reassigned and is NOT hoisted.
 
