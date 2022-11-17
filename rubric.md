@@ -27,7 +27,7 @@
 
 
 ## Total Possible Points on Unit 2 Assessment
-* **Short Response Section:** 42 points (each question has a technical score of 3 points to be summed up)
+* **Short Response Section:** 39 points (each question has a technical score of 3 points to be summed up)
 * **Code Katas Section:** 18 points (each question has a algorithm and code style score to be summsed up)
 * **Writing Average:** 3 points (take the average of all non-zero scores to determine _writing average score_)
 
