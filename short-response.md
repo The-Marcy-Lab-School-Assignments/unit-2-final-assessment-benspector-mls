@@ -200,13 +200,13 @@ Variables declared with `let` or `const` are not hoisted. If they are referenced
 
 13. **What does it mean to _pass by reference_? In what ways do arrays and objects appear to be passed by reference in JavaScript?**
 
-  When we assign complex data types to variables, we aren't actually storing the literal array or object in the variable. Instead, the array or object is stored at a location in the computer's memory and that _location_ or _reference_ is what is stored in the array.
+  When we assign complex data types to variables, we aren't actually storing the literal array or object in the variable. Instead, the array or object is stored in the portion of the computer's memory (called the _heap_) and given an address. This address or _reference_ is what is stored in the variable.
 
   Passing _by reference_ occurs when we assign a variable whose value is a complex data type to another variable, like so:
 
   ```js
   let a = [1,2,3];
-  // lets think of this as a = 0xd48af2 where 0xd48af2 is the memory location of the array.
+  // lets think of this as a = 0xd48af2 where 0xd48af2 is the address of the array in the heap.
   let b = a;
   // b now stores the same reference: b = 0xd48af2
   
@@ -218,5 +218,5 @@ Variables declared with `let` or `const` are not hoisted. If they are referenced
   // 1,2,3,4
   ```
 
-  Since both variables reference the same array, when we make changes to that reference using variable `a`, the changes are being made to the exact same array referenced by variable `b`.
+  Since both variables reference the same array, when we mutate the array referenced by variable `a`, the mutations are being made to the exact same array referenced by variable `b`.
 
