@@ -1,7 +1,7 @@
 # Unit 2 Assessment - JavaScript Fundamentals
-## Written Assessment
 
-1. **What is hoisting? Describe how hoisting affects variable _and_ function declarations. Provide code snippets to illustrate hoisting for both.** 
+
+## 1. What is hoisting? Describe how hoisting affects variable _and_ function declarations. Provide code snippets to illustrate hoisting for both.
 
 **Hoisting** is a behavior of JavaScript in which function declarations (functions declared with the `function` keyword and _not_ function expressions) are "lifted" to the top of the file in which they were created.
 
@@ -24,7 +24,7 @@ const sayGoodbye = function() {
 
 In this example, `sayHello` is declared _after_ it is invoked and yet the invocation is successful due to hoisting. The invocation of `sayGoodbye()` throws an error because function expressions are _not_ hoisted.
 
-Hoisting also applies to variables declared using the `var` keyword. However, only the _variable declaration_ is hoisted, not the  _initialization_. As a result, hoisted variables that are referenced before their initialization will have a value of `undefined`. 
+Hoisting also applies to variables declared using the `var` keyword. However, only the _variable declaration_ is hoisted, not the  _assignment_. As a result, hoisted variables that are referenced before their initialization will have a value of `undefined`. 
 
 ```js
 console.log(foo); // This prints undefined
@@ -38,7 +38,7 @@ let age = 100;
 Variables declared with `let` or `const` are not hoisted. If they are referenced before their declaration, a `ReferenceError` will be thrown.
 
 
-2. **Why does the following block of code throw an error?**
+## 2. Why does the following block of code throw an error?
   ```javascript
   const isMaya = true;
 
@@ -56,7 +56,8 @@ Variables declared with `let` or `const` are not hoisted. If they are referenced
   * The `console.log` statement at the end of the code block is in the global scope and it references `currentStatus` which is block scoped and NOT available in the global scope. The result is a `ReferenceError`.
 
 
-3. **Why does the following block of code NOT throw an error?**
+## 3. Why does the following block of code NOT throw an error?
+
   ```javascript
   const isLaishaOnTime = true;
 
@@ -72,14 +73,14 @@ Variables declared with `let` or `const` are not hoisted. If they are referenced
   This code block does NOT throw an error because, unlike the previous example, `currentStatus` is declared using the `var` keyword which is NOT block scoped. As a result, the `console.log()` statement has access to `currentStatus` even though it is declared inside of an `if`/`else` block.
 
 
-4. **In JavaScript, we can declare variables with `var`, `let`, and `const`. What are the differences between each? Be sure to comment on how each declaration impacts the _scope_, _reassignment_, and _hoisting_ of variables.**
+## 4. In JavaScript, we can declare variables with `var`, `let`, and `const`. What are the differences between each? Be sure to comment on how each declaration impacts the _scope_, _reassignment_, and _hoisting_ of variables.
 
 * The `var` keyword declares a _function scoped_ variable that can be reassigned and whose _declaration_ is hoisted (but not its initialization).
 * The `let` keyword declares a _block scoped_ variable that can be reassigned and is NOT hoisted.
 * The `const` keyword declares a _block scoped_ variable that CANNOT be reassigned and is NOT hoisted.
 
 
-5. **What does the following code log? Explain why?**
+## 5. What does the following code log? Explain why?
   ```javascript
   let bestPlayer = {name: "Lebron James"};
   let theGOAT = bestPlayer;
@@ -89,9 +90,9 @@ Variables declared with `let` or `const` are not hoisted. If they are referenced
 
   This code will log the string `"Kevin Durant"`. This is because objects are stored in variables as _object references_ and when `theGoat` is declared and assigned `bestPlayer`, `theGoat` is assigned the _reference_ to the `bestPlayer` object. 
   
-  This means that both variables refer to the exact same object. As a result, when we change the object referenced by `bestPlayer` by changing the value of the `.name` property to `"Kevin Durant"`, we are changing the same object referenced by `theGoat`. Therefore, `theGoat.name` is `"Kevin Durant"`.
+  This means that both variables refer to the exact same object. As a result, when we mutate the object referenced by `bestPlayer` by changing the value of the `.name` property to `"Kevin Durant"`, we are mutating the same object referenced by `theGoat`. Therefore, `theGoat.name` is `"Kevin Durant"`.
 
-6. **What is the value of `b` after this code runs? Explain why this is the case.**
+## 6. What is the value of `b` after this code runs? Explain why this is the case.
   ```javascript
   let a = 10;
   let b = a;
@@ -103,7 +104,7 @@ Variables declared with `let` or `const` are not hoisted. If they are referenced
 
   The value of `b` after this code runs is `10`. Simple data types like Numbers are copied by _value_. This means that when we write `b = a`, we are copying the _value_ of `a` (`10`) and assigning it to `b`. After, when we reassign `a`, this has no effect on `b`, which still holds `10`.
 
-7. **Where does the following code throw an error? What type of error? Why?**
+## 7. Where does the following code throw an error? What type of error? Why?
   ```javascript
   const bffs = 'Enmanuel Laisha';
   bffs = 'Enmanuel Laisha Cielo';
@@ -113,7 +114,7 @@ Variables declared with `let` or `const` are not hoisted. If they are referenced
 
   This code will throw a `TypeError` on line 2 when we try to reassign the constant variable `bffs`. This is because constant variables cannot be reassigned.
 
-8. **Wait, why doesn't the code below throw an error?! 🧐 What does this demonstrate?**
+## 8. Wait, why doesn't the code below throw an error?! 🧐 What does this demonstrate?
   ```javascript
   const bffs = ['Enmanuel', 'Laisha'];
   bffs.push('Cielo');
@@ -123,7 +124,7 @@ Variables declared with `let` or `const` are not hoisted. If they are referenced
 
   This code will NOT throw an error because we never actually change the value of the variable `bffs`. The value of `bffs` remains the same — a reference to the Array. We can add values to array referenced by `bffs` without changing the reference stored in `bffs`, so this works! This demonstrates the _reference value_ of complex data types.
 
-9. **What is the purpose of _rest parameters_? How do we use them? Explain how do they differ from the `arguments` object. Illustrate the use of rest parameters by writing a function that takes any number of integers as arguments and returns their sum.**
+## 9. What is the purpose of _rest parameters_? How do we use them? Explain how do they differ from the `arguments` object. Illustrate the use of rest parameters by writing a function that takes any number of integers as arguments and returns their sum.
 
   ```javascript
   sum(1, 2, 10); // 13
@@ -134,7 +135,7 @@ Variables declared with `let` or `const` are not hoisted. If they are referenced
   Rest parameters are used to enable functions to accept any number of parameters. We use them by putting three dots (`...`) before a rest parameter name. A rest parameter must be the last parameter in a function declaration:
 
   ```js
-  function myFunc(firstParam, secondParam, ...restParams) {}
+  function myFunc(a, b, ...rest) {}
   ```
 
   Rest parameters differ from the `arguments` object in three ways:
@@ -153,7 +154,7 @@ Variables declared with `let` or `const` are not hoisted. If they are referenced
   ```
 
 
-10. **What does the following code log? Why?**
+## 10. What does the following code log? Why?
   ```javascript
   let theCreator = 'Devonte';
 
@@ -166,9 +167,9 @@ Variables declared with `let` or `const` are not hoisted. If they are referenced
   console.log(`The best designer in the room is ${theCreator}.`);
   ```
 
-  This code prints `"The best designer in the room is Peter"` twice. This is because the variable `theCreator` is declared in the global scope. In the function `shoutOut`, we reassign the same global variable it modifies this global variable and since both `console.log` statements occur after the reassignment, both will print the same thing.
+  This code prints `"The best designer in the room is Peter"` twice. This is because the variable `theCreator` is declared in the global scope as a `let` variable. In the function `shoutOut`, we reassign `theCreator` and since both `console.log` statements occur after the reassignment, and both reference the same `variable`, both will print the same thing.
 
-11. **What does the following code log? Why?**
+## 11. What does the following code log? Why?
   ```javascript
   let theHustler = 'Laisha';
 
@@ -181,11 +182,13 @@ Variables declared with `let` or `const` are not hoisted. If they are referenced
   console.log(`${theHustler} is also the hardest working person in the room.`);
   ```
 
-  This code will first print `"Paul is the hardest working person in the room."` and then `"Laisha is also the hardest working person in the room."`. This occurs because `shoutOut` is invoked first. In this function, the locally scoped variable `theHustler` is initialized to `Paul` as a separate variable from the globally scoped variable `theHustler`. The locally scoped variable takes priority within the scope of the function and `Paul` is included in the first print statement. 
+  This code will first print `"Paul is the hardest working person in the room."` and then `"Laisha is also the hardest working person in the room."`. 
+  
+  This occurs because `shoutOut` is invoked first. In this function, the locally scoped variable `theHustler` is initialized to `Paul` as a separate variable from the globally scoped variable `theHustler`. The locally scoped variable takes priority within the scope of the function and `Paul` is included in the first print statement. 
 
   Once we exit the function, the globally scoped variable `theHustler` still has the value `"Laisha"` and `"Laisha"` is included in the print statement.
 
-12. **What do we mean when we say that JavaScript passes variables _by value_?**
+## 12. What do we mean when we say that JavaScript passes variables _by value_?
 
   Passing variables _by value_ occurs when we assign a variable whose value is a simple data type to another variable, like so:
 
@@ -198,7 +201,7 @@ Variables declared with `let` or `const` are not hoisted. If they are referenced
 
   When passing a variable _by value_, the value of the copied variable (`a`) given to the new variable (`b`). After this, the variable `a` can be reassigned and it won't affect the value held by variable `b`. There is no lasting connection between the value held by `a` and by `b`.
 
-13. **What does it mean to _pass by reference_? In what ways do arrays and objects appear to be passed by reference in JavaScript?**
+## 13. What does it mean to _pass by reference_? In what ways do arrays and objects appear to be passed by reference in JavaScript?
 
   When we assign complex data types to variables, we aren't actually storing the literal array or object in the variable. Instead, the array or object is stored in the portion of the computer's memory (called the _heap_) and given an address. This address or _reference_ is what is stored in the variable.
 
