@@ -167,7 +167,7 @@ Variables declared with `let` or `const` are not hoisted. If they are referenced
   console.log(`The best designer in the room is ${theCreator}.`);
   ```
 
-  This code prints `"The best designer in the room is Peter"` twice. This is because the variable `theCreator` is declared in the global scope as a `let` variable. In the function `shoutOut`, we reassign `theCreator` and since both `console.log` statements occur after the reassignment, and both reference the same `variable`, both will print the same thing.
+  This code prints `"The best designer in the room is Peter"` twice. First, the variable `theCreator` is declared in the global scope with `let`, meaning it can be reassigned anywhere in the program. When the function `shoutOut` is invoked, `theCreator` is reassigned with a value of `"Peter"`. Since both `console.log` statements occur after the reassignment, and both reference the same variable, both will print the `"The best designer in the room is Peter"`.
 
 ## 11. What does the following code log? Why?
   ```javascript
