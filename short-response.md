@@ -183,7 +183,7 @@ Variables declared with `let` or `const` are not hoisted. If they are referenced
 
   This code will first print `Paul is the hardest working person in the room.` and then `Laisha is also the hardest working person in the room.`. 
   
-  This is because we first declare a globally scoped variable `theHustler` with the value `"Laisha"`. Then, when we invoke `shoutOut`, the keyword `let` declares `theHustler` as a new variable in the scope of `shoutOut`. Because we are declaring a new variable `theHustler` in the function's scope, the globally scoped variable `theHustler` is NOT reassigned. As a result, when we reference theHustler inside of shoutOut(), we get the function scoped value "Paul" and when we reference theHustler in the global scope, we get "Laisha".
+  This is because we first declare a globally scoped variable `theHustler` with the value `"Laisha"`. Then, when we invoke `shoutOut`, the keyword `let` declares `theHustler` as a new variable in the scope of `shoutOut`. Because we are declaring a new variable `theHustler` in the function's scope, the globally scoped variable `theHustler` is NOT reassigned. As a result, when we reference `theHustler` inside of `shoutOut()`, we get the function scoped value `"Paul"` and when we reference `theHustler` in the global scope, we get `"Laisha"`.
 
 ## 12. What do we mean when we say that JavaScript passes variables _by value_?
 
