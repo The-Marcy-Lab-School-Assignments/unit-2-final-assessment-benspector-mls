@@ -126,12 +126,6 @@ Variables declared with `let` or `const` are not hoisted. If they are referenced
 
 ## 9. What is the purpose of _rest parameters_? How do we use them? Explain how do they differ from the `arguments` object. Illustrate the use of rest parameters by writing a function that takes any number of integers as arguments and returns their sum.
 
-  ```javascript
-  sum(1, 2, 10); // 13
-  sum(5); // 5
-  sum(100, 200, 800, 1, 1, 1); // 1103;
-  ```
-
   Rest parameters are used to enable functions to accept any number of parameters. We use them by putting three dots (`...`) before a rest parameter name. A rest parameter must be the last parameter in a function declaration:
 
   ```js
@@ -151,8 +145,11 @@ Variables declared with `let` or `const` are not hoisted. If they are referenced
       restNums.forEach(num => sum+=num);
       return sum;
   }
+  
+  sum(1, 2, 10); // returns 13
+  sum(5); // returns 5
+  sum(100, 200, 800, 1, 1, 1); // returns 1103;
   ```
-
 
 ## 10. What does the following code log? Why?
   ```javascript
@@ -167,7 +164,9 @@ Variables declared with `let` or `const` are not hoisted. If they are referenced
   console.log(`The best designer in the room is ${theCreator}.`);
   ```
 
-  This code prints `"The best designer in the room is Peter"` twice. First, the variable `theCreator` is declared in the global scope with `let`, meaning it can be reassigned anywhere in the program. When the function `shoutOut` is invoked, `theCreator` is reassigned with a value of `"Peter"`. Since both `console.log` statements occur after the reassignment, and both reference the same variable, both will print the `"The best designer in the room is Peter"`.
+  This code prints `The best designer in the room is Peter` twice. 
+  
+  This is because first, the variable `theCreator` is declared in the global scope with `let`, meaning it can be reassigned anywhere in the program. When the function `shoutOut` is invoked, `theCreator` is reassigned with a value of `"Peter"`. Since both `console.log` statements occur after the reassignment, and both reference the same variable, both will print the `The best designer in the room is Peter`.
 
 ## 11. What does the following code log? Why?
   ```javascript
@@ -182,11 +181,9 @@ Variables declared with `let` or `const` are not hoisted. If they are referenced
   console.log(`${theHustler} is also the hardest working person in the room.`);
   ```
 
-  This code will first print `"Paul is the hardest working person in the room."` and then `"Laisha is also the hardest working person in the room."`. 
+  This code will first print `Paul is the hardest working person in the room.` and then `Laisha is also the hardest working person in the room.`. 
   
-  This occurs because `shoutOut` is invoked first. In this function, the locally scoped variable `theHustler` is initialized to `Paul` as a separate variable from the globally scoped variable `theHustler`. The locally scoped variable takes priority within the scope of the function and `Paul` is included in the first print statement. 
-
-  Once we exit the function, the globally scoped variable `theHustler` still has the value `"Laisha"` and `"Laisha"` is included in the print statement.
+  This is because we first declare a globally scoped variable `theHustler` with the value `"Laisha"`. Then, when we invoke `shoutOut`, the keyword `let` declares `theHustler` as a new variable in the scope of `shoutOut`. Because we are declaring a new variable `theHustler` in the function's scope, the globally scoped variable `theHustler` is NOT reassigned. As a result, when we reference theHustler inside of shoutOut(), we get the function scoped value "Paul" and when we reference theHustler in the global scope, we get "Laisha".
 
 ## 12. What do we mean when we say that JavaScript passes variables _by value_?
 
