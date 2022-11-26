@@ -54,13 +54,28 @@ function rotateArray(array) {
 
 // Question 3
 function letterCaseCounts(string) {
-    const lowercase = string.match(/[a-z]/g)
-    const uppercase = string.match(/[A-Z]/g)
-
     const obj = {
-        lowercase: lowercase ? lowercase.length: 0,
-        uppercase: uppercase ? uppercase.length: 0,
+        lowercase: 0,
+        uppercase: 0,
+        neither: 0
     }
+    
+    // use regex to extract only the lowercase characters into an array
+    const lowercase = string.match(/[a-z]/g);
+    
+    // use regex to extract only the lowercase characters into an array
+    const uppercase = string.match(/[A-Z]/g);
+    
+    // if match() returned an array, its length is the number of lowercase characters
+    if (lowercase !== null) {
+        obj.lowercase = lowercase.length;
+    }
+    
+    // same thing but for uppercase characters
+    if (uppercase !== null) {
+        obj.uppercase = uppercase.length;
+    }
+ 
     // neither should be the remaining characters
     obj.neither = string.length - obj.lowercase - obj.uppercase;
 
