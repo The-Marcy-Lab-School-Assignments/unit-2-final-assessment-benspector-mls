@@ -150,6 +150,8 @@ Variables declared with `let` or `const` are not hoisted. If they are referenced
   sum(5); // returns 5
   sum(100, 200, 800, 1, 1, 1); // returns 1103;
   ```
+  
+  In this example, the parameter `restNums` is a rest parameter. Note that it is the last parameter in the parameter list. When I invoke `sum(100, 200, 800, 1, 1, 1)`, the parameter `restNums` will be an array holding the values `[800, 1, 1, 1]`.
 
 ## 10. What does the following code log? Why?
   ```javascript
